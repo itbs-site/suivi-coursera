@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi Certifications Coursera - ITBS</title>
+    <style>
+        /* VOTRE CSS IDENTIQUE - AUCUN CHANGEMENT */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header h2 {
+            color: #3498db;
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+        
+        .info-card p {
+            margin-bottom: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+        }
+        
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f5fd;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #addRowBtn {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        #addRowBtn:hover {
+            background-color: #219653;
+        }
+        
+        #sendBtn {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        #sendBtn:hover {
+            background-color: #219653;
+        }
+        
+        #resetBtn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        #resetBtn:hover {
+            background-color: #c0392b;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .status-select {
+            font-weight: 600;
+        }
+        
+        .status-obtenu {
+            color: #27ae60;
+        }
+        
+        .status-encours {
+            color: #f39c12;
+        }
+        
+        .status-nonobtenu {
+            color: #e74c3c;
+        }
+        
+        @media print {
+            button, .btn-container {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- VOTRE HTML IDENTIQUE JUSQU'À LA TABLE -->
+        <div class="header">
+            <h1>Ecole Supérieure Privée des Technologies de l'Information et de Management de Nabeul</h1>
+            <h2>ITBS - Département des Sciences de Gestion</h2>
+            <p><strong>État de suivi des certifications Coursera</strong></p>
+            <p>Année académique : 2025-2026</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions pour le remplissage :</h3>
+            <ul>
+                <li>Remplir toutes les colonnes pour chaque étudiant dont vous êtes responsable</li>
+                <li><strong>Niveau :</strong> L1, L2, L3, M1, M2, etc.</li>
+                <li><strong>Filière/Groupe :</strong> selon l'organisation pédagogique en vigueur</li>
+                <li><strong>Intitulé du cours Coursera :</strong> préciser le nom exact du cours ou du parcours certifiant</li>
+                <li><strong>Causes de non-obtention :</strong> problèmes techniques, difficultés de compréhension, absence de remise des évaluations, problèmes de temps/organisation, autre (à préciser)</li>
+                <li><strong>Actions préconisées :</strong> accompagnement supplémentaire, rappel des deadlines, tutorat, réexplication des consignes, etc.</li>
+            </ul>
+            <p><strong>Date limite de retour :</strong> [Indiquer la date limite]</p>
+        </div>
+        
+        <div class="info-section">
+            <div class="info-card">
+                <h3>Enseignant responsable</h3>
+                <p><strong>Nom :</strong> [Nom du responsable]</p>
+                <p><strong>Email :</strong> [email@itbs.ma]</p>
+                <p><strong>Date de mise à jour :</strong> <span id="currentDate"></span></p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Légende des statuts</h3>
+                <p><span class="status-obtenu">■</span> <strong>Obtenu :</strong> Certification délivrée</p>
+                <p><span class="status-encours">■</span> <strong>En cours :</strong> Cours en progression</p>
+                <p><span class="status-nonobtenu">■</span> <strong>Non obtenu :</strong> Certification non acquise</p>
+            </div>
+        </div>
+        
+        <table id="suiviTable">
+            <thead>
+                <tr>
+                    <th width="3%">N°</th>
+                    <th width="12%">Nom et Prénom</th>
+                    <th width="6%">Niveau</th>
+                    <th width="10%">Filière</th>
+                    <th width="8%">Groupe</th>
+                    <th width="15%">Cours Coursera</th>
+                    <th width="10%">Statut</th>
+                    <th width="10%">Date d'obtention</th>
+                    <th width="13%">Causes de non-obtention</th>
+                    <th width="13%">Actions préconisées</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="Nom_Prenom" placeholder="Nom Prénom"></td>
+                    <td><input type="text" name="Niveau" placeholder="L1, L2..."></td>
+                    <td><input type="text" name="Filiere" placeholder="Filière"></td>
+                    <td><input type="text" name="Groupe" placeholder="Groupe"></td>
+                    <td><input type="text" name="Cours_Coursera" placeholder="Intitulé du cours"></td>
+                    <td>
+                        <select name="Statut" class="status-select">
+                            <option value="">Sélectionner</option>
+                            <option value="obtenu" class="status-obtenu">Obtenu</option>
+                            <option value="encours" class="status-encours">En cours</option>
+                            <option value="nonobtenu" class="status-nonobtenu">Non obtenu</option>
+                        </select>
+                    </td>
+                    <td><input type="date" name="Date_obtention"></td>
+                    <td><textarea name="Causes_non_obtention" placeholder="Si non obtenu..."></textarea></td>
+                    <td><textarea name="Actions_preconisees" placeholder="Actions à prendre..."></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- ✅ MODIFIÉ : ExportBtn → SendBtn -->
+        <div class="btn-container">
+            <button id="addRowBtn">+ Ajouter un étudiant</button>
+            <button id="sendBtn">✅ Envoyer</button>
+            <button id="resetBtn">Réinitialiser</button>
+        </div>
+        
+        <div class="footer">
+            <p>Merci de retourner ce document complété par email avant la date limite indiquée.</p>
+            <p>Direction du Département des Sciences de Gestion - ITBS</p>
+        </div>
+    </div>
+
+    <script>
+        // VOS FONCTIONS IDENTIQUES + NOUVELLE FONCTION ENVOI
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('fr-FR');
+        
+        let rowCount = 1;
+        
+        // ✅ FONCTION AJOUTER (IDENTIQUE)
+        document.getElementById('addRowBtn').addEventListener('click', function() {
+            rowCount++;
+            const tableBody = document.getElementById('tableBody');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td><input type="text" name="Nom_Prenom" placeholder="Nom Prénom"></td>
+                <td><input type="text" name="Niveau" placeholder="L1, L2..."></td>
+                <td><input type="text" name="Filiere" placeholder="Filière"></td>
+                <td><input type="text" name="Groupe" placeholder="Groupe"></td>
+                <td><input type="text" name="Cours_Coursera" placeholder="Intitulé du cours"></td>
+                <td>
+                    <select name="Statut" class="status-select">
+                        <option value="">Sélectionner</option>
+                        <option value="obtenu" class="status-obtenu">Obtenu</option>
+                        <option value="encours" class="status-encours">En cours</option>
+                        <option value="nonobtenu" class="status-nonobtenu">Non obtenu</option>
+                    </select>
+                </td>
+                <td><input type="date" name="Date_obtention"></td>
+                <td><textarea name="Causes_non_obtention" placeholder="Si non obtenu..."></textarea></td>
+                <td><textarea name="Actions_preconisees" placeholder="Actions à prendre..."></textarea></td>
+            `;
+            
+            tableBody.appendChild(newRow);
+        });
+        
+        // ✅ NOUVEAU : Bouton ENVOYER vers Google Sheets
+        document.getElementById('sendBtn').addEventListener('click', function() {
+            // Collecter TOUTES les lignes du tableau
+            const rows = document.querySelectorAll('#tableBody tr');
+            const formData = { rows: [] };
+            
+            rows.forEach((row, index) => {
+                const inputs = row.querySelectorAll('input[name], select[name], textarea[name]');
+                const rowData = {};
+                
+                inputs.forEach(input => {
+                    rowData[input.name] = input.value || '';
+                });
+                
+                // Ne pas ajouter les lignes vides
+                if (rowData.Nom_Prenom.trim() !== '') {
+                    formData.rows.push(rowData);
+                }
+            });
+            
+            // VÉRIFIER qu'il y a des données
+            if (formData.rows.length === 0) {
+                alert('⚠️ Veuillez remplir au moins un étudiant avant d\'envoyer.');
+                return;
+            }
+            
+            // REMPLACEZ PAR VOTRE URL GOOGLE APPS SCRIPT
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzh-EtaQMM-jGr1Vy5pdUpA4_FAaS2yqm3-RX12inuMFJMu04LSYRBeQu0cjjAfFSVG/exec';
+            
+            // Envoyer au Google Sheet
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.result === 'success') {
+                    alert(`✅ SUCCÈS ! ${result.rows} étudiant(s) envoyé(s) dans Google Sheets "Suivi Coursera ITBS"`);
+                    document.getElementById('resetBtn').click(); // Reset auto
+                } else {
+                    alert('❌ Erreur : ' + result.error);
+                }
+            })
+            .catch(error => {
+                alert('❌ Erreur connexion : ' + error.message + '\nVérifiez l\'URL Google Apps Script');
+            });
+        });
+        
+        // FONCTION RESET (IDENTIQUE)
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            if (confirm('Voulez-vous vraiment réinitialiser toutes les données? Cette action est irréversible.')) {
+                const inputs = document.querySelectorAll('#tableBody input, #tableBody select, #tableBody textarea');
+                inputs.forEach(input => {
+                    if (input.tagName === 'SELECT') {
+                        input.selectedIndex = 0;
+                    } else {
+                        input.value = '';
+                    }
+                });
+                
+                const rows = document.querySelectorAll('#tableBody tr');
+                for (let i = 1; i < rows.length; i++) {
+                    rows[i].remove();
+                }
+                
+                rowCount = 1;
+                alert('Formulaire réinitialisé.');
+            }
+        });
+        
+        // COULEURS STATUT (IDENTIQUE)
+        document.addEventListener('change', function(e) {
+            if (e.target && e.target.classList.contains('status-select')) {
+                const selectedOption = e.target.options[e.target.selectedIndex];
+                e.target.className = 'status-select ' + selectedOption.value;
+            }
+        });
+    </script>
+</body>
+</html>
